@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Rating</title>
+
+</head>
+<body>
+
+    <form action="{{ url_for('edit', id=book_to_update.id) }}" method="POST" novalidate>
+        <h3>Book Name: {{ book_to_update.title }}</h3>
+        <h3>Current Rating: {{ book_to_update.rating }}</h3>
+        {{ form.csrf_token }}
+        {{ form.new_rating }} {{ form.submit }}
+        {% for error in form.new_rating.errors %}
+            <span style="color:red">{{ err }}</span>
+        {% endfor %}
+    </form>
+</body>
+</html>
